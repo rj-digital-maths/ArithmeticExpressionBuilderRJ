@@ -81,6 +81,25 @@ def generate_pdf(name, student_class, difficulty, score, total, quiz_data, user_
 # =========================================================
 st.set_page_config(page_title="Expression Builder", page_icon="🧮", layout="centered")
 
+# 📖 SIDEBAR USER MANUAL (Safe isolated instructions block)
+with st.sidebar:
+    st.header("📖 User Guide")
+    st.markdown("""
+    Welcome to **Interactive Expression Builder** by RJ Interactive Maths! 
+    
+    ### 🎯 Objective
+    Use the **three provided numbers** along with arithmetic operators (`+`, `-`, `*`, `/`) or parentheses `()` to construct an expression that equals the **Target Number**.
+    
+    ### 🛠️ Step-by-Step:
+    1️⃣ Enter the **Student Name** and **Class**.
+    2️⃣ Select your **Difficulty Level**.
+    3️⃣ If you have a **Premium License Key**, type it in to unlock custom lengths up to 25 questions and printable reports. Leave it blank for a 3-question trial.
+    4️⃣ Click **Start Quiz**!
+    5️⃣ Type your expression strings into the text boxes and hit **Submit Quiz** at the end.
+    
+    *Example:* If your target is **5** and numbers are **2, 4, 1**, your answer string can be: `4 + 2 - 1`
+    """)
+
 st.title("Expression Builder")
 st.caption("by RJ Interactive Maths")
 
