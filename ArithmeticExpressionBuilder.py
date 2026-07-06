@@ -181,23 +181,30 @@ elif st.session_state.submitted:
                     correct_answers += 1
         except: pass
 
-    # 🎈 Trigger balloons instantly for everyone upon submission!
     st.balloons()
 
     # --- LOCK VS PREMIUM CONDITIONAL LOGIC ---
     if not st.session_state.is_premium:
-        # 🛑 FREE TRIAL LOCK SCREEN
+        # 🛑 FREE TRIAL LOCK SCREEN WITH UPGRADE BUTTON
         st.markdown("""
         <div style="background:#FFF0F2; border:2px solid #FFC1CC; border-radius:12px; padding:35px; text-align:center; margin-bottom:25px;">
             <h1 style="color:#D32F2F; margin:0; font-size:36px; font-weight:bold;">⚠️ Trial Expired!</h1>
-            <p style="color:#555; font-size:16px; margin-top:15px; font-weight:500;">
+            <p style="color:#555; font-size:16px; margin-top:15px; font-weight:500; margin-bottom:20px;">
                 Your free trial quiz is complete. Printable PDF reports and unlimited quiz generation are premium features.
             </p>
-            <h3 style="color:#C2185B; margin-top:10px; font-size:20px; font-weight:bold;">Please upgrade your application to continue!</h3>
+            <h3 style="color:#C2185B; font-size:19px; font-weight:bold; margin-bottom:25px;">Please upgrade your application to continue!</h3>
+            <a href="https://rjinteractivemaths.myinstamojo.com/product/rj-mathmatrix-automated-expression-test-repo/" target="_blank" style="text-decoration:none;">
+                <button style="background-color:#D32F2F; color:white; border:none; padding:14px 30px; font-size:16px; font-weight:bold; border-radius:6px; cursor:pointer; box-shadow: 0 4px 10px rgba(211,47,47,0.3); transition: 0.2s;">
+                    ⭐ UPGRADE TO PREMIUM SUITE
+                </button>
+            </a>
         </div>
         """, unsafe_allow_html=True)
         
         st.markdown(f"<p style='text-align:center; color:#666;'><b>Trial Performance:</b> {correct_answers} / {st.session_state.total_qs} Correct</p>", unsafe_allow_html=True)
+        
+        # Secondary standard layout backup link just in case
+        st.link_button("🌐 Click here to purchase license if button doesn't open", "https://rjinteractivemaths.myinstamojo.com/product/rj-mathmatrix-automated-expression-test-repo/", use_container_width=True)
         
     else:
         # 🔓 PREMIUM WIN SCREEN
@@ -230,4 +237,3 @@ elif st.session_state.submitted:
                 st.session_state.submitted = False
                 st.session_state.is_premium = False
                 st.rerun()
-    # --- NEEDFUL CHANGES END HERE ---
